@@ -14,7 +14,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
-  "PICO_BOARD=\"pico\""
+  "PICO_BOARD=\"adafruit_feather_rp2040\""
   "PICO_BUILD=1"
   "PICO_NO_HARDWARE=0"
   "PICO_ON_DEVICE=1"

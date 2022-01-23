@@ -22,7 +22,7 @@ pico-ssd1306/CMakeFiles/pico_ssd1306.dir/Users/mattgardner/pico/pico-sdk/src/com
  /Users/mattgardner/pico/spi_test/build/generated/pico_base/pico/version.h \
  /Users/mattgardner/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
  /Users/mattgardner/pico/spi_test/build/generated/pico_base/pico/config_autogen.h \
- /Users/mattgardner/pico/pico-sdk/src/boards/include/boards/pico.h \
+ /Users/mattgardner/pico/pico-sdk/src/boards/include/boards/adafruit_feather_rp2040.h \
  /Users/mattgardner/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /Users/mattgardner/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
  /Users/mattgardner/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
