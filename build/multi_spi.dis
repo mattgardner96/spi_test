@@ -370,7 +370,7 @@ Disassembly of section .text:
 100003de:	4659      	mov	r1, fp
 100003e0:	0020      	movs	r0, r4
 100003e2:	f003 f88f 	bl	10003504 <__wrap_sprintf>
-100003e6:	0021      	movs	r1, r4
+100003e6:	7821      	ldrb	r1, [r4, #0]
 100003e8:	4650      	mov	r0, sl
 100003ea:	f003 ff2b 	bl	10004244 <__wrap_printf>
 100003ee:	6831      	ldr	r1, [r6, #0]
@@ -392,7 +392,7 @@ Disassembly of section .text:
 10000414:	d50e      	bpl.n	10000434 <main+0x128>
 10000416:	4817      	ldr	r0, [pc, #92]	; (10000474 <main+0x168>)
 10000418:	f003 fe6c 	bl	100040f4 <__wrap_puts>
-1000041c:	2208      	movs	r2, #8
+1000041c:	2204      	movs	r2, #4
 1000041e:	0021      	movs	r1, r4
 10000420:	0038      	movs	r0, r7
 10000422:	f007 faf1 	bl	10007a08 <__spi_write_blocking_veneer>
@@ -416,13 +416,13 @@ Disassembly of section .text:
 10000454:	20001adc 	.word	0x20001adc
 10000458:	10007a28 	.word	0x10007a28
 1000045c:	10007ab4 	.word	0x10007ab4
-10000460:	10007a3c 	.word	0x10007a3c
+10000460:	10007ab0 	.word	0x10007ab0
 10000464:	200003d0 	.word	0x200003d0
-10000468:	10007a40 	.word	0x10007a40
+10000468:	10007a3c 	.word	0x10007a3c
 1000046c:	20001ae0 	.word	0x20001ae0
-10000470:	10007a60 	.word	0x10007a60
-10000474:	10007a78 	.word	0x10007a78
-10000478:	10007a88 	.word	0x10007a88
+10000470:	10007a5c 	.word	0x10007a5c
+10000474:	10007a74 	.word	0x10007a74
+10000478:	10007a84 	.word	0x10007a84
 
 1000047c <i2c_set_baudrate>:
 1000047c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
@@ -2792,7 +2792,7 @@ Disassembly of section .text:
 1000180c:	e7fd      	b.n	1000180a <panic+0x22>
 1000180e:	46c0      	nop			; (mov r8, r8)
 10001810:	100083e0 	.word	0x100083e0
-10001814:	10007a5c 	.word	0x10007a5c
+10001814:	10007a58 	.word	0x10007a58
 
 10001818 <hard_assertion_failure>:
 10001818:	b510      	push	{r4, lr}
@@ -7451,7 +7451,7 @@ Disassembly of section .text:
 10003d74:	b510      	push	{r4, lr}
 10003d76:	4801      	ldr	r0, [pc, #4]	; (10003d7c <missing_float_func_shim+0x8>)
 10003d78:	f7fd fd36 	bl	100017e8 <panic>
-10003d7c:	10007ab0 	.word	0x10007ab0
+10003d7c:	10007aac 	.word	0x10007aac
 
 10003d80 <__aeabi_float_init>:
 10003d80:	2313      	movs	r3, #19
@@ -14912,7 +14912,7 @@ Disassembly of section .data:
 20000152:	b082      	sub	sp, #8
 20000154:	000c      	movs	r4, r1
 20000156:	0007      	movs	r7, r0
-20000158:	f000 f922 	bl	200003a0 <__time_us_64_veneer>
+20000158:	f000 f932 	bl	200003c0 <__time_us_64_veneer>
 2000015c:	22fa      	movs	r2, #250	; 0xfa
 2000015e:	2300      	movs	r3, #0
 20000160:	9000      	str	r0, [sp, #0]
@@ -14942,7 +14942,7 @@ Disassembly of section .data:
 20000194:	f381 8810 	msr	PRIMASK, r1
 20000198:	0020      	movs	r0, r4
 2000019a:	0029      	movs	r1, r5
-2000019c:	f000 f910 	bl	200003c0 <__best_effort_wfe_or_timeout_veneer>
+2000019c:	f000 f900 	bl	200003a0 <__best_effort_wfe_or_timeout_veneer>
 200001a0:	2800      	cmp	r0, #0
 200001a2:	d120      	bne.n	200001e6 <mutex_enter_timeout_ms+0x9a>
 200001a4:	683a      	ldr	r2, [r7, #0]
@@ -15193,14 +15193,14 @@ Disassembly of section .data:
 2000039c:	4770      	bx	lr
 2000039e:	46c0      	nop			; (mov r8, r8)
 
-200003a0 <__time_us_64_veneer>:
+200003a0 <__best_effort_wfe_or_timeout_veneer>:
 200003a0:	b401      	push	{r0}
-200003a2:	4802      	ldr	r0, [pc, #8]	; (200003ac <__time_us_64_veneer+0xc>)
+200003a2:	4802      	ldr	r0, [pc, #8]	; (200003ac <__best_effort_wfe_or_timeout_veneer+0xc>)
 200003a4:	4684      	mov	ip, r0
 200003a6:	bc01      	pop	{r0}
 200003a8:	4760      	bx	ip
 200003aa:	bf00      	nop
-200003ac:	100010d9 	.word	0x100010d9
+200003ac:	10000f35 	.word	0x10000f35
 
 200003b0 <____wrap___aeabi_lmul_veneer>:
 200003b0:	b401      	push	{r0}
@@ -15211,14 +15211,14 @@ Disassembly of section .data:
 200003ba:	bf00      	nop
 200003bc:	10003d41 	.word	0x10003d41
 
-200003c0 <__best_effort_wfe_or_timeout_veneer>:
+200003c0 <__time_us_64_veneer>:
 200003c0:	b401      	push	{r0}
-200003c2:	4802      	ldr	r0, [pc, #8]	; (200003cc <__best_effort_wfe_or_timeout_veneer+0xc>)
+200003c2:	4802      	ldr	r0, [pc, #8]	; (200003cc <__time_us_64_veneer+0xc>)
 200003c4:	4684      	mov	ip, r0
 200003c6:	bc01      	pop	{r0}
 200003c8:	4760      	bx	ip
 200003ca:	bf00      	nop
-200003cc:	10000f35 	.word	0x10000f35
+200003cc:	100010d9 	.word	0x100010d9
 
 200003d0 <buffer>:
 200003d0:	74736554 00676e69                       Testing.

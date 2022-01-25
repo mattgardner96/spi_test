@@ -44,7 +44,7 @@ int main() {
     gpio_set_function(PICO_DEFAULT_SPI_SCK_PIN,GPIO_FUNC_SPI);
     gpio_set_function(PICO_DEFAULT_SPI_TX_PIN,GPIO_FUNC_SPI);
     gpio_set_function(PICO_DEFAULT_SPI_RX_PIN,GPIO_FUNC_SPI);
-    gpio_set_function(SPI_CSN_PIN,GPIO_FUNC_SPI);
+    gpio_set_function(SPI_CSN_PIN, GPIO_FUNC_SPI);
 
     spi_set_format(spi0,8,SPI_CPOL_0,SPI_CPHA_0,SPI_LSB_FIRST);
 
@@ -54,9 +54,9 @@ int main() {
         display.sendBuffer(); // write to display
 
         // convert the value to a text char*
-        sprintf(buffer,"%d",value);
+        sprintf(buffer,"%d\0",value);
 
-        printf("(uint8_t*) buffer value: %0x\n",(uint8_t*) buffer);
+        printf("(uint8_t*) buffer value: %0x\n",*((uint8_t*)buffer));
         printf("value contains: %#x\n",value);
 
         // Draw text on display
@@ -71,7 +71,7 @@ int main() {
 
         if(spi_is_writable(spi0)) {
             printf("%s","Writing to SPI\n");
-            write_bytes = spi_write_blocking(spi0,(uint8_t*)buffer,8);
+            write_bytes = spi_write_blocking(spi0,(uint8_t*)buffer,4);
             // printf("wrote %d bytes\n",write_bytes);
             printf("wrote %d bytes of (uint8_t*)buffer: %#x\n",write_bytes,*buffer);
         } else {
